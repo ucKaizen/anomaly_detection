@@ -1,10 +1,11 @@
 # Anomaly Detection UI
 
-![GitHub](https://img.shields.io/github/license/your-username/rice-anomaly-detection-ui?style=flat-square)  
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/rice-anomaly-detection-ui?style=flat-square)  
-![GitHub issues](https://img.shields.io/github/issues/your-username/rice-anomaly-detection-ui?style=flat-square)
+![GitHub](https://img.shields.io/github/license/your-username/anomaly_detection?style=flat-square)  
+![GitHub last commit](https://img.shields.io/github/last-commit/your-username/anomaly_detection?style=flat-square)  
+![GitHub issues](https://img.shields.io/github/issues/your-username/anomaly_detection?style=flat-square)
 
 *Detect anomalies in rice images using unsupervised and semi-supervised learning with a user-friendly Gradio interface.*
+Dataset a subset of https://www.kaggle.com/datasets/muratkokludataset/rice-image-dataset
 
 ## Overview
 
