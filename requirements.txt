@@ -1,0 +1,17 @@
+# Core ML and data processing
+numpy>=1.23.0
+scikit-learn>=1.2.0
+tensorflow>=2.10.0
+pyod>=1.1.0
+
+# Image processing
+opencv-python>=4.7.0
+
+# Plotting
+matplotlib>=3.6.0
+
+# UI
+gradio>=4.0.0
+
+# Optional: for better reproducibility
+pandas>=1.5.0
