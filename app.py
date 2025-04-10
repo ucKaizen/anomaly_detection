@@ -6,6 +6,7 @@ import random
 from sklearn.decomposition import PCA
 from sklearn.metrics import classification_report, roc_auc_score
 from tensorflow.keras.applications import EfficientNetB0
+from tensorflow.keras.applications.efficientnet import preprocess_input  # Add this import
 from tensorflow.keras.models import Model
 from pyod.models.iforest import IForest
 from pyod.models.lof import LOF
@@ -13,11 +14,11 @@ from pyod.models.ocsvm import OCSVM
 import matplotlib.pyplot as plt
 
 # Paths (adjust as needed)
-dataset_path = "/kaggle/input/rice-image-dataset/Rice_Image_Dataset"
-basmati_path = os.path.join(dataset_path, "Basmati")
-jasmine_path = os.path.join(dataset_path, "Jasmine")
+dataset_path = "data"
+basmati_path = os.path.join(dataset_path, "basmati")
+jasmine_path = os.path.join(dataset_path, "jasmine")
 
-# Load and preprocess images (same as your code)
+# Load and preprocess images
 def load_images_from_folder(folder, label, limit=None):
     images = []
     filenames = os.listdir(folder)
@@ -30,7 +31,7 @@ def load_images_from_folder(folder, label, limit=None):
         if img is not None:
             img = cv2.resize(img, (128, 128))
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            img = preprocess_input(img.astype(np.float32))
+            img = preprocess_input(img.astype(np.float32))  # Now this will work
             images.append(img)
             img_data.append((img, filename, label))
     return np.array(images), img_data
@@ -68,7 +69,7 @@ X_train_features = extract_features(X_train)
 X_test_features = extract_features(X_test)
 
 # PCA
-pca = PCA(n_components=100)
+pca = PCA(n_components=50)
 X_train_reduced = pca.fit_transform(X_train_features)
 X_test_reduced = pca.transform(X_test_features)
 
@@ -134,15 +135,15 @@ def run_anomaly_detection(mode, model_name, contamination, n_estimators, n_neigh
 
 # Gradio Interface
 with gr.Blocks() as interface:
-    gr.Markdown("## Rice Anomaly Detection UI")
+    gr.Markdown("## Anomaly Detection Playground")
     
     with gr.Row():
         mode = gr.Dropdown(["Unsupervised", "Semi-supervised"], label="Mode")
         model_name = gr.Dropdown(["IForest", "LOF", "OCSVM"], label="Model")
     
     with gr.Row():
-        contamination = gr.Slider(0, 0.5, value=0.05, step=0.01, label="Contamination")
-        n_estimators = gr.Slider(100, 500, value=100, step=10, label="N Estimators (IForest)")
+        contamination = gr.Slider(0, 0.25, value=0.05, step=0.01, label="Contamination")
+        n_estimators = gr.Slider(100, 299, value=100, step=10, label="N Estimators (IForest)")
         n_neighbors = gr.Slider(5, 50, value=20, step=1, label="N Neighbors (LOF)")
         nu = gr.Slider(0, 1, value=0.1, step=0.01, label="Nu (OCSVM)")
 
