@@ -1,4 +1,4 @@
-# Anomaly Detection UI
+# Anomaly Detection - Unsupervised and Semi Supervised
 
 ![GitHub](https://img.shields.io/github/license/ucKaizen/anomaly_detection?style=flat-square)  
 ![GitHub last commit](https://img.shields.io/github/last-commit/ucKaizen/anomaly_detection?style=flat-square)  
