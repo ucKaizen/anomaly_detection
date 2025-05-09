@@ -44,3 +44,7 @@ The project is built with Python and uses libraries like TensorFlow, scikit-lear
 - **Metrics**: Provides classification report, AUC score, and a list of detected outliers with filenames.
 
 
+Deploy to HF:
+    export HF_TOKEN=XXX 
+    git remote add space "https://ucKaizen:${HF_TOKEN}@huggingface.co/spaces/ucKaizen/anomaly_detection"
+    git push --force space main
