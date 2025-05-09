@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check HF_TOKEN environment variable (name only)
-        run: echo "HF_TOKEN environment variable is set: $HF_TOKEN"
+        run: echo "${HF_TOKEN}"
       - name: Add remote
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
