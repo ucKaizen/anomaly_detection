@@ -1,3 +1,19 @@
+---
+title: Anomaly Detection UI
+emoji: 🚀
+color: blue
+sdk: gradio
+app_file: app.py  # Or the name of your main Gradio script if it's different
+# model_id: ucKaizen/your-pretrained-model # Optional: If you have a specific model on the Hub
+tags:
+- anomaly detection
+- image classification
+- gradio
+- machine learning
+- unsupervised learning
+- semi-supervised learning
+---
+
 # Anomaly Detection UI
 
 ![GitHub](https://img.shields.io/github/license/ucKaizen/anomaly_detection?style=flat-square)  
