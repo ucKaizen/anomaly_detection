@@ -11,11 +11,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Check HF_TOKEN environment variable (name only)
+        run: echo "HF_TOKEN environment variable is set: $HF_TOKEN"
       - name: Add remote
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: git remote add space "https://${HF_TOKEN}@huggingface.co/spaces/ucKaizen/anomaly_detection"
       - name: Push to hub
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }} # Ensure you're using the correct secret name here
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: git push --force space main
