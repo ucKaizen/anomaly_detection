@@ -15,8 +15,8 @@ jobs:
       - name: Add remote
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          run: git remote add space https://ucKaizen:$HF_TOKEN@huggingface.co/spaces/ucKaizen/anomaly_detection
-
+          run: |
+            git remote add space https://ucKaizen:$HF_TOKEN@huggingface.co/spaces/ucKaizen/anomaly_detection
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
